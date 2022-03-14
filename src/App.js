@@ -1,25 +1,43 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import { Login } from "./components/login";
+import "./App.css";
 
-function App() {
+const App = () => {
+  //set variables
+  const [user, setUser] = useState(); // getter and setter - user is the default state, setUser
+  const [username, setUsername] = useState();
+  const [email, setEmail] = useState();
+  const [pass, setPass] = useState();
+  const [bool, setBool] = useState();
+
+  // Define handler
+  const submitHandler = (e) => {
+    e.preventDefault();
+    setUser({ username: username, email: email, pass: pass });
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='App'>
+      {user && <h1>{user.username}</h1>}
+      {user ? <h1>{user.username}</h1> : <h1>Please type something</h1>}
+      <Login
+        handler={submitHandler}
+        nameSetter={setUsername}
+        emailSetter={setEmail}
+        passSetter={setPass}
+        boolSetter={setBool}
+        bool={bool}
+      />
+      {/* <Login
+        handler={submitHandler}
+        nameSetter={setUsername}
+        emailSetter={setEmail}
+        passSetter={setPass}
+        boolSetter={setBool}
+        bool={bool}
+      /> */}
     </div>
   );
-}
+};
 
 export default App;
