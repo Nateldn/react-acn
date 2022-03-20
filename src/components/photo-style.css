@@ -1,0 +1,13 @@
+.img_container {
+  width: 90vw; /* Alter the width and height value to suit */
+  height: 300px;
+  overflow: hidden;
+  display: flex;
+  justify-content: space-around;
+}
+
+.img_container .img_item {
+  max-width: 30%;
+  height: auto;
+  display: block;
+}

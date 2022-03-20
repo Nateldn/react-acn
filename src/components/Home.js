@@ -1,3 +1,4 @@
+import "./home-style.css";
 import { useState } from "react";
 import { PhotoContainer } from "../photoContainer";
 
